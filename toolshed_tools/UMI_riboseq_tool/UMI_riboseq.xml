@@ -1,0 +1,32 @@
+<tool id="UMI_riboseq" name="move UMIs from reads to header" version="0.1.6d">
+<requirements>
+    <requirement type="package" version="1.75">biopython</requirement>
+</requirements>
+<command detect_errors="exit_code">
+<![CDATA[ python3 '$__tool_directory__/UMI.py' $reads $output ]]>
+</command>
+<inputs>
+    <param format="fastqsanger,fastqsanger.gz" name="reads" type="data" label="fastqsanger,fastqsanger.gz"/>
+</inputs>
+<outputs>
+    <data format="fastqsanger" name="output"/>
+</outputs>
+<tests>
+    <test>
+        <param name="reads" value="sub_10k_reads.fq.gz"/>
+        <output name="output" file="output"/>
+    </test>
+    <test>
+        <param name="reads" value="sub_10k_reads2.fq"/>
+        <output name="output" file="output2"/>
+    </test>
+</tests>
+<help>
+<![CDATA[ fastq/fastq.gz are input files with reads containing UMIs (already demultiplexed and adapters are removed).
+          The output of the script is fastq/fastq.gz file where UMIs (7nt in total, 5'NN and 3'NNNNN preceding barcode consisting of 5nt) are in header of the read. It is designed for protocol: McGlincy NJ, Ingolia NT. Transcriptome-wide measurement of translation by ribosome profiling. Methods. 2017;126:112-129. doi:10.1016/j.ymeth.2017.05.028 ]]>
+</help>
+<citations>
+<citation type="bibtex"> @misc{FedorovaAD2022, author = {Fedorova Alla}, year = {2022}, title = {UMI_for_riboseq}, publisher = {GitHub}, journal = {GitHub repository}, url = {https://github.com/triasteran/RiboGalaxy_with_ansible/blob/main/toolshed_tools/UMI_riboseq_tool/UMI.py}, }
+</citation>
+</citations>
+</tool>

@@ -1,12 +1,16 @@
-<tool id="UMI_riboseq" name="move UMIs from reads to header" version="0.1.6d">
+<tool id="UMI_riboseq" name="UMIs to Header" version="0.1.7">
 <requirements>
     <requirement type="package" version="1.75">biopython</requirement>
 </requirements>
 <command detect_errors="exit_code">
-<![CDATA[ python3 '$__tool_directory__/UMI.py' $reads $output ]]>
+<![CDATA[ python3 '$__tool_directory__/UMI.py' $reads $output $gzip $5_prime_UMI_length $3_prime_UMI_length]]>
 </command>
 <inputs>
     <param format="fastqsanger,fastqsanger.gz" name="reads" type="data" label="fastqsanger,fastqsanger.gz"/>
+    <param name="gzip" type="boolean" truevalue="true" falsevalue="false" checked="True" label="Gzip the outputted FASTQ" />
+    <param name="5_prime_UMI_length" type="integer" value="2" label="Number of UMI bases at the 5' end" help="2 for McGincy Ingolia Protocol" />
+    <param name="3_prime_UMI_length" type="integer" value="5" label="Number of UMI bases at the 3' end)" help="5 for McGincy Ingolia Protocol" />
+
 </inputs>
 <outputs>
     <data format="fastqsanger" name="output"/>

@@ -18,7 +18,7 @@ def process_fastq_record(record, output, UMI_5_prime_length=2, UMI_3_prime_lengt
     Write UMI to FASTQ header for given biopython record to given open output
      UMI_5_prime_length number of bases to trim from 5' and write to header
      UMI_3_prime_length number of bases to trim from 3' and write to header
-     defaults are for McGinley Ingolia Protocol
+     defaults are for McGlincy Ingolia Protocol
     '''
     lines = record.format('fastq').split('\n') # all 4 lines 
     header = lines[0]   

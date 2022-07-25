@@ -69,8 +69,8 @@ def main():
     pathToFastaFile = argv[1]
     output = argv[2]
     bool_gzip = True if argv[3].lower().capitalize() == 'True' else False
-    UMI_5_prime_length = argv[4]
-    UMI_3_prime_length = argv[5]
+    UMI_5_prime_length = int(argv[4])
+    UMI_3_prime_length = int(argv[5])
     UMI_processing(pathToFastaFile, output, bool_gzip, UMI_5_prime_length, UMI_3_prime_length)
 
 if __name__ == "__main__":

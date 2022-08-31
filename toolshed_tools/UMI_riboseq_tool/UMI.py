@@ -50,7 +50,7 @@ def UMI_processing(pathToFastaFile, output_path, bool_gzip, UMI_5_prime_length, 
         print ('file is gzipped fastq')
         with gzip.open(pathToFastaFile, "rt") as handle:
             for i, record in enumerate(SeqIO.parse(handle, "fastq")):
-                process_fastq_record(record, output, UMI_5_prime_length=2, UMI_3_prime_length=5)
+                process_fastq_record(record, output, UMI_5_prime_length, UMI_3_prime_length)
 
     else: 
         for record in SeqIO.parse(pathToFastaFile, 'fastq'):

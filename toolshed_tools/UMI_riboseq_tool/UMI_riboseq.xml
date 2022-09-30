@@ -6,7 +6,7 @@
 <![CDATA[ python3 $__tool_directory__/UMI.py $reads $output ${five_prime_UMI_length} ${three_prime_UMI_length}]]>
 </command>
 <inputs>
-    <param format="fastqsanger,fastqsanger.gz" name="reads" type="data" label="fastqsanger,fastqsanger.gz"/>
+    <param format="fastq,fastqsanger,fastqsanger.gz" name="reads" type="data" label="fastqsanger,fastqsanger.gz"/>
     <param name="five_prime_UMI_length" type="integer" value='2' label="Number of UMI bases at the 5' end" help="2 for McGlincy Ingolia Protocol" />
     <param name="three_prime_UMI_length" type="integer" value='5' label="Number of UMI bases at the 3' end)" help="5 for McGlincy Ingolia Protocol" />
 

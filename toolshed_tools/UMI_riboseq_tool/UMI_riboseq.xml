@@ -1,4 +1,4 @@
-<tool id="UMI_riboseq" name="UMIs to Header" version="0.1.7">
+<tool id="UMI_riboseq" name="UMIs to Header" version="0.1.8">
 <requirements>
     <requirement type="package" version="1.75">biopython</requirement>
 </requirements>

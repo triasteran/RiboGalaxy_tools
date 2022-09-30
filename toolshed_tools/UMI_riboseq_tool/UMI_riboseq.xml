@@ -13,7 +13,7 @@
 
 </inputs>
 <outputs>
-    <data format="fastq,fastqsanger,fastqsanger.gz" name="output"/>
+    <data format="fastqsanger.gz" name="output"/>
 </outputs>
 <tests>
     <test>

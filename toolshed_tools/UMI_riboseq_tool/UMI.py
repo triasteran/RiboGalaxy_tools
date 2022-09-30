@@ -39,13 +39,13 @@ def process_fastq_record(record, output, UMI_5_prime_length=2, UMI_3_prime_lengt
 
 
 
-def UMI_processing(pathToFastaFile, output_path, bool_gzip, UMI_5_prime_length, UMI_3_prime_length):
-    
-    if bool_gzip:
-        output = gzip.open(output_path,"wt")
-    else: 
-        output = open(output_path, 'w')
-    
+def UMI_processing(pathToFastaFile, output_path, UMI_5_prime_length, UMI_3_prime_length):
+    '''
+    Open fastq outfile as gzip and write processed reads to new file
+    '''
+
+    output = gzip.open(output_path,"wt")
+
     if is_gz_file(pathToFastaFile) == True: 
         print ('file is gzipped fastq')
         with gzip.open(pathToFastaFile, "rt") as handle:
@@ -68,10 +68,9 @@ def main():
     # Get paths
     pathToFastaFile = argv[1]
     output = argv[2]
-    bool_gzip = True if argv[3].lower().capitalize() == 'True' else False
     UMI_5_prime_length = int(argv[4])
     UMI_3_prime_length = int(argv[5])
-    UMI_processing(pathToFastaFile, output, bool_gzip, UMI_5_prime_length, UMI_3_prime_length)
+    UMI_processing(pathToFastaFile, output, UMI_5_prime_length, UMI_3_prime_length)
 
 if __name__ == "__main__":
     main()
